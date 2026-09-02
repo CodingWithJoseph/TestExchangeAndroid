@@ -16,11 +16,11 @@ TestExchange/
 │   ├── model/                 # Shared domain models (empty by design)
 │   ├── mvi/                   # MVI contracts; no store implementation
 │   └── designsystem/          # Compose theme and reusable UI foundation
-├── domain/exchange/           # Use cases and repository ports (TODO)
-├── data/exchange/
+├── domain/                    # Use cases and repository ports (TODO)
+├── data/
 │   ├── api/                   # Data-source abstractions (TODO)
 │   └── impl/                  # Retrofit/Room/repository adapters (TODO)
-├── feature/exchange/
+├── feature/
 │   ├── api/                   # Public route contract
 │   └── impl/                  # Compose/MVI feature implementation seam
 ├── testing/                   # Shared fakes, rules, and fixtures (TODO)

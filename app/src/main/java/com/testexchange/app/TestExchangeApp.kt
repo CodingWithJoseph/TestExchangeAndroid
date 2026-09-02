@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.testexchange.core.designsystem.TestExchangeTheme
-import com.testexchange.feature.exchange.api.ExchangeRoute
-import com.testexchange.feature.exchange.impl.exchangeScreen
+import com.testexchange.feature.api.ExchangeRoute
+import com.testexchange.feature.impl.exchangeScreen
 
 @Composable
 internal fun TestExchangeApp() {
