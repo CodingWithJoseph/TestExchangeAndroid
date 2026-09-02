@@ -5,14 +5,14 @@ Every item below is deliberately left to the project owner.
 ## Domain first
 
 - [ ] Define exchange terminology and immutable models in `core:model`.
-- [ ] Define repository ports and use-case contracts in `domain:exchange`.
+- [ ] Define repository ports and use-case contracts in `domain`.
 - [ ] Decide error, freshness, pagination, and market-session semantics.
 - [ ] Write reducer and use-case tests before adding adapters.
 
 ## Data adapters
 
-- [ ] Define only the replaceable source ports needed in `data:exchange:api`.
-- [ ] Add serialization DTOs and Retrofit endpoints in `data:exchange:impl`.
+- [ ] Define only the replaceable source ports needed in `data:api`.
+- [ ] Add serialization DTOs and Retrofit endpoints in `data:impl`.
 - [ ] Add Room entities, DAOs, migrations, and mapping functions.
 - [ ] Implement repository coordination, caching, and retry policy.
 - [ ] Bind concrete adapters to domain ports in a Hilt module.

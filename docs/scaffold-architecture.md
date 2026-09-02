@@ -10,27 +10,27 @@
                                    │
                  ┌─────────────────┴─────────────────┐
                  ▼                                   ▼
-      feature:exchange:api                feature:exchange:impl
+          feature:api                        feature:impl
         public route contract                 Compose + MVI
                  ▲                                   │
                  └───────────────────────────────────┤
                                                      ▼
-                                           domain:exchange
+                                               domain
                                           use cases + ports
                                                      ▲
                                                      │
-                                           data:exchange:impl
+                                             data:impl
                                            repository adapters
                                                      │
                                                      ▼
-                                            data:exchange:api
+                                              data:api
                                            source abstractions
 
 All modules may depend downward on narrowly scoped core modules. No core or domain
 module may depend on app, a feature implementation, or a data implementation.
 ```
 
-`app` is allowed to know implementation modules because it is the composition root. Other features should depend on `feature:exchange:api`, never on `feature:exchange:impl`. Domain code owns repository ports; data code implements them. Framework types should not leak into domain contracts.
+`app` is allowed to know implementation modules because it is the composition root. Other features should depend on `feature:api`, never on `feature:impl`. Domain code owns repository ports; data code implements them. Framework types should not leak into domain contracts.
 
 ## MVI contract
 
@@ -54,14 +54,14 @@ Recommended feature ownership:
 
 An `api` module contains the smallest stable surface that another module needs. An `impl` module contains volatile choices such as Retrofit, Room, Hilt bindings, ViewModels, and screen composition. Do not place concrete types in API signatures.
 
-For each new bounded feature:
+For this scaffold's bounded feature:
 
 ```text
-feature:<name>:api     public navigation contract
-feature:<name>:impl    UI, MVI contract, ViewModel, feature DI
-domain:<name>          use cases, entities, repository ports
-data:<name>:api        local/remote source ports when substitution is valuable
-data:<name>:impl       source and repository adapters
+feature:api     public navigation contract
+feature:impl    UI, MVI contract, ViewModel, feature DI
+domain          use cases, entities, repository ports
+data:api        local/remote source ports when substitution is valuable
+data:impl       source and repository adapters
 ```
 
 Do not split a module merely to mirror folders. Add a module when it creates a useful dependency boundary, ownership boundary, build-isolation benefit, or replaceable implementation.
